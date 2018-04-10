@@ -1,0 +1,20 @@
+{
+  "description": "Theme Matcher Dynamic Theme",
+  "homepage_url": "https://github.com/taboca/themematcher",
+  "manifest_version": 2,
+  "name": "Theme Matcher by Taboca",
+  "permissions": [
+    "tabs",
+    "<all_urls>",
+    "theme"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "version": "1.0",
+  "applications": {
+    "gecko": {
+      "strict_min_version": "55.0a2"
+    }
+  }
+}
