@@ -35,7 +35,7 @@ How to use the dynamic theme API.
 
 * Favicon analysis
 
-## Discussions around usae cases
+## Discussions around use cases
 
 ### Browser blends with tab content's navbar
 
