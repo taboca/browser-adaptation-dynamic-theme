@@ -25,14 +25,14 @@ How to use the dynamic theme API.
 
 ## Heuristics
 
-* If the site has navbar, adapts to navbar and removes the bottom border of the theme;
+* When navbar — If the site has navbar, adapts to navbar and removes the bottom border of the theme;
+* When bgcolor – If the site has background color, adapts to background color
+* When chrome — Page background and removes bottom border
 
-* If the site has background color, adapts to background color
-
-* Text color calculation heuristics
+### Calculations
 
 * Graphics analysis looks at a section cut, vertical line, first 10 pixels
-
+* Text color calculation heuristics
 * Favicon analysis
 
 ## Discussions around use cases
