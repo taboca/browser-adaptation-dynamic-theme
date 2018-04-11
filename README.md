@@ -37,7 +37,15 @@ How to use the dynamic theme API.
 
 ## Discussions around usae cases
 
-### Browser blends with Navbar
+### Browser blends with tab content's navbar
+
+![](https://raw.githubusercontent.com/taboca/themematcher/master/images/30_blend_navbar_2.png)
+
+### Browser blends with tab content's navbar
+
+![](https://raw.githubusercontent.com/taboca/themematcher/master/images/20_blend_navbar.png)
+
+### Browser blends with its own content (about:)
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/10_blend_about.png)
 
