@@ -35,6 +35,12 @@ How to use the dynamic theme API.
 
 * Favicon analysis
 
+## Discussions around usae cases
+
+### Browser blends with Navbar
+
+![](https://raw.githubusercontent.com/taboca/themematcher/master/images/10_blend_about.png)
+
 ## Analysis of Add-ons as a distribution channel
 
 Since this is an experiment, yet functional within the guides of Mozilla Add-ons framework, I had also the chance to reflect about the actual channel of distribution, the Mozilla Add-ons web site.
