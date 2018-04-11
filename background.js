@@ -58,6 +58,8 @@ function onCaptured(imageUri) {
       colors: {
         accentcolor: 'rgb('+color.r+','+color.g+','+color.b+')',
         textcolor: 'rgb('+textC+','+textC+','+textC+')',
+        toolbar_bottom_separator: 'rgb('+color.r+','+color.g+','+color.b+')',
+        toolbar : 'rgb('+color.r+','+color.g+','+color.b+')'
       }
     }
     browser.theme.update(themeProposal);
