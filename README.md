@@ -1,4 +1,4 @@
-# Dynamic theme — aka Chameleon as promoted in the Firefox Add-ons Directory
+# Chameleon Dynamic Theme — An User Experience Experiment for Firefox 
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/logo.png)
 
