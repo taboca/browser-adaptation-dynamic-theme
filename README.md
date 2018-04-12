@@ -51,11 +51,9 @@ This dynamic theme adapts to web sites and apps or fixed bars.
 
 ### Browser blends with tab content's navbar
 
-![](https://raw.githubusercontent.com/taboca/themematcher/master/images/30_blend_navbar_2.png)
-
-### Browser blends with tab content's navbar
-
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/20_blend_navbar.png)
+
+![](https://raw.githubusercontent.com/taboca/themematcher/master/images/30_blend_navbar_2.png)
 
 ### Browser blends with its own content (about:)
 
