@@ -41,7 +41,13 @@ This dynamic theme adapts to web sites and apps or fixed bars.
 * Text color calculation heuristics
 * Favicon analysis
 
-## Discussions around use cases
+## Screenshots and use cases
+
+### Matching the master header
+
+![](https://raw.githubusercontent.com/taboca/themematcher/master/images/40_addons_developer_main.png)
+
+![](https://raw.githubusercontent.com/taboca/themematcher/master/images/50_developer_hub.png)
 
 ### Browser blends with tab content's navbar
 
@@ -59,7 +65,7 @@ This dynamic theme adapts to web sites and apps or fixed bars.
 
 ## Android Status Bar Color Setting from Apps
 
-* Users of Android are used to the experience of the mobile status bar matching certain apps (first became apparent with Google apps) since Lollipop. In the Android framework, the behavior can be accomplished via directly using the [Android View API's setStatusBarColor method](https://developer.android.com/reference/android/view/Window.html#setStatusBarColor(int)). Reflections about color matching, including the means to disambiguate content from colors in the status bar, are also brought in the [Google Material Design — Style Color](https://material.io/guidelines/style/color.html#color-color-system) documentation. 
+* Users of Android are used to the experience of the mobile status bar matching certain apps (first became apparent with Google apps) since Lollipop. In the Android framework, the behavior can be accomplished via directly using the [Android View API's setStatusBarColor method](https://developer.android.com/reference/android/view/Window.html#setStatusBarColor(int)). Reflections about color matching, including the means to disambiguate content from colors in the status bar, are also brought in the [Google Material Design — Style Color](https://material.io/guidelines/style/color.html#color-color-system) documentation.
 
 ## Inverting Page Contents Inverts Toolbars
 
