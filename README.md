@@ -1,10 +1,12 @@
-# Chameleon Dynamic Theme — Adapting the Browser Toolbar to Web Sites & An User Experience Experiment for Firefox 
+# Chameleon Dynamic Theme — Adapting the Browser Toolbar to Web Sites & An User Experience Experiment for Firefox
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/logo.png)
 
 ## Introduction
 
-This is a prototype for a Firefox theme, however using a UX-oriented mindset; this project is aimed as a reflection, therefore it's beyond its initial code. This experiment also offers a Firefox theme currently published at https://addons.mozilla.org/en-US/firefox/addon/semantic-dynamic-theme. The idea is to consider how a browser can/should blend with the actual content that the user is visiting, and to specially consider the dichotomy between external and internal browser pages.
+This is a prototype for a Firefox theme, however using a UX-oriented mindset; this project is aimed as a reflection, therefore it's beyond its initial code. The Add-on experiment is currently available for Firefox Quantum and published at [Chameleon Dynamic Theme Firefox Add-on](https://addons.mozilla.org/pt-BR/firefox/addon/chameleon-dynamic-theme/). 
+
+The idea is to consider how a browser can/should blend with the actual content that the user is visiting, and to specially consider the dichotomy between external and internal browser pages.
 
 When publishing this work, I have noticed myself using the Mozilla add-on site as a place for UX discussions. For example, I have decided to add screenshots however each screenshot aimed to discuss cases. At the same time noticed how add-ons sites could be improved around these discussions perhaps. If you want to jump to a reflection about the Add-ons site see bellow.
 
