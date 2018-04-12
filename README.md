@@ -1,5 +1,7 @@
 # Dynamic theme — aka Chameleon as promoted in the Firefox Add-ons Directory
 
+![](https://raw.githubusercontent.com/taboca/themematcher/master/images/logo.png)
+
 ## Introduction
 
 This is a prototype for a Firefox theme, however using a UX-oriented mindset; this project is aimed as a reflection, therefore it's beyond its initial code. This experiment also offers a Firefox theme currently published at https://addons.mozilla.org/en-US/firefox/addon/semantic-dynamic-theme. The idea is to consider how a browser can/should blend with the actual content that the user is visiting, and to specially consider the dichotomy between external and internal browser pages.
