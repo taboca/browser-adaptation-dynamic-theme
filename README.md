@@ -10,9 +10,13 @@ The idea is to consider how a browser can/should blend with the actual content t
 
 When publishing this work, I have noticed myself using the Mozilla add-on site as a place for UX discussions. For example, I have decided to add screenshots however each screenshot aimed to discuss cases. At the same time noticed how add-ons sites could be improved around these discussions perhaps. If you want to jump to a reflection about the Add-ons site see bellow.
 
-## What it does
+## What it does and why it does?
 
-This dynamic theme adapts to web sites and apps or fixed bars.
+This dynamic theme adapts the browser main theme (toolbar) to web sites or content from sites. The aim of the project is to explore a phenomena perceived as immersion experiences. When an user is visiting a web site she or he in fact partially surrender an interface to the site. The proposition here, or a provocation since we don't know yet this is ideal or not, is to allow a reflection — can or should a web site also affect the browser interface partially?
+
+This can be a complex discussion exactly because the user needs a resting place, a place to be safe when navigating the web. Since the user can eventually stumble in malicious web content, there is always the question about how the browser interfaces endorses the content.
+
+Nevertheless, this project is here so we can explore the good opportunities, first. Can we imagine a safe web and if so would it make sense to have the browser fully adapt to the site? Of course, once you allow yourself to reason about that; it's of course quite important to reason about the negative aspects as well.  
 
 ## What it shows and what is aimed at:
 
