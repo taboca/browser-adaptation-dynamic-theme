@@ -14,6 +14,9 @@ function updateActiveTab(tabs) {
   }
   var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
   gettingActiveTab.then(updateTab);
+
+  getCurrentThemeInfo();
+
 }
 
 browser.tabs.onUpdated.addListener(updateActiveTab);
@@ -70,3 +73,24 @@ function onCaptured(imageUri) {
 function onError(error) {
   console.log(`Error: ${error}`);
 }
+
+/* Them inspection */
+
+function getStyle(themeInfo)
+{
+  console.log(JSON.stringify(themeInfo));
+  if (themeInfo.colors)
+  {
+    console.log("accent color : " +  themeInfo.colors.accentcolor);
+    console.log("toolbar : " + themeInfo.colors.toolbar);
+  }
+}
+
+async function getCurrentThemeInfo()
+{
+  var themeInfo = await browser.theme.getCurrent();
+  getStyle(themeInfo);
+}
+
+
+console.log('marcio')

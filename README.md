@@ -64,3 +64,9 @@ But a less naive reflection is more like a subtle proposition — could Add-ons 
 A lot of developers, specially within the Mozilla realm, really understand that Add-on space have always served the purpose of evolving Firefox — however in a chaotic way — which Mozilla always benefited even if one or other developer-user had no idea how they have participated in the chain.  
 
 I wonder if it would be possible to better integrate Add-ons, APIs, tests and the community to improve how new UX insights could be evaluated and evolve.
+
+## Reflections — Inverting Page Contents Inverts Toolbars
+
+* Use Case @ FirefoxInvertColors Project — this project is an extension that promises to invert the colors. This is an interesting case to pay attention and to reason about what would happen when the page change content color. This may also signal some interesting ways to sniff/check current page color values. https://github.com/Max-Github/FireFoxInvertColors.
+
+* In theory, inverting the content should seamlessly work; however we do not trigger a change in the theme just based on any change. Therefore, one consideration here would be to put some theme filters built in the extension, or, alternatively, have a system to recheck page contents. At the earliest version, 1.0, all the times a tab is switched/updated the theme is updated anyway. But with an optimization, such feature would go away since an ideal scenario is to take the content from the cache.
