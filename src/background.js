@@ -55,7 +55,11 @@ function onCaptured(imageUri) {
 
     var textC = parseInt((parseInt(255-color.r) + parseInt(255-color.g) + parseInt(255-color.b))/3);
 
-    if(textC>128) textC=255;
+    if(textC>128) {
+      textC=255
+    } else {
+      textC=0;
+    }
 
     var themeProposal = {
       colors: {
