@@ -81,4 +81,4 @@ I wonder if it would be possible to better integrate Add-ons, APIs, tests and th
 
 ## Adapting the Firefox Theme to the Operating System
 
-* Jacob Birkett, in his project Firefox Native Dark, explores the concept of adaptation however focusing in the exercise of matching against the operating system. https://github.com/spikespaz/firefox-nativedark 
+* Jacob Birkett, in his project Firefox Native Dark, explores the concept of adaptation however focusing in the exercise of matching against the operating system. https://github.com/spikespaz/firefox-nativedark. Jacob have mentioned that his extension gets the accent color from the Windows 10 operating system, which is defined by the user in the Windows Personalization Settings. He also informed that his extension can't get the data in Linux.
