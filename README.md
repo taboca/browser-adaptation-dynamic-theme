@@ -59,7 +59,7 @@ This dynamic theme adapts to web sites and apps or fixed bars.
 
 ## Android Status Bar Color Setting from Apps
 
-* Users of Android are used to the experience of the mobile status bar matching certain apps (first became apparent with Google apps) since Lollipop. In the Android framework, the behavior can be accomplished via directly using the [Android View API's setStatusBarColor method](https://developer.android.com/reference/android/view/Window.html#setStatusBarColor(int)). 
+* Users of Android are used to the experience of the mobile status bar matching certain apps (first became apparent with Google apps) since Lollipop. In the Android framework, the behavior can be accomplished via directly using the [Android View API's setStatusBarColor method](https://developer.android.com/reference/android/view/Window.html#setStatusBarColor(int)). Reflections about color matching, including the means to disambiguate content from colors in the status bar, are also brought in the [Google Material Design — Style Color](https://material.io/guidelines/style/color.html#color-color-system) documentation. 
 
 ## Inverting Page Contents Inverts Toolbars
 
