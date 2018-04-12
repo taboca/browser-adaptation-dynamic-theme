@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This is a prototype for a Firefox theme, however using a UX-oriented mindset; this project is aimed as a reflection, therefore it's beyond its initial code. The Add-on experiment is currently available for Firefox Quantum and published at [Chameleon Dynamic Theme Firefox Add-on](https://addons.mozilla.org/pt-BR/firefox/addon/chameleon-dynamic-theme/). 
+This is a prototype for a Firefox theme, however using a UX-oriented mindset; this project is aimed as a reflection, therefore it's beyond its initial code. The Add-on experiment is currently available for Firefox Quantum and published at [Chameleon Dynamic Theme Firefox Add-on](https://addons.mozilla.org/pt-BR/firefox/addon/chameleon-dynamic-theme/).
 
 The idea is to consider how a browser can/should blend with the actual content that the user is visiting, and to specially consider the dichotomy between external and internal browser pages.
 
@@ -14,9 +14,11 @@ When publishing this work, I have noticed myself using the Mozilla add-on site a
 
 This dynamic theme adapts to web sites and apps or fixed bars.
 
-## What it shows
+## What it shows and what is aimed at:
 
-How to use the dynamic theme API.
+* How to use the dynamic theme API.
+* A reflection about the notion of a browser adapting to site contents.
+* Collecting user experience data and expand the discussion. 
 
 ## Related
 
