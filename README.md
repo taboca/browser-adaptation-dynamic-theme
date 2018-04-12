@@ -16,9 +16,9 @@ This dynamic theme adapts to web sites and apps or fixed bars.
 
 ## What it shows and what is aimed at:
 
-* How to use the dynamic theme API.
+* How to use the dynamic theme API. For additional information please refer to [Dynamic themes](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic_themes).
 * A reflection about the notion of a browser adapting to site contents.
-* Collecting user experience data and expand the discussion. 
+* Collecting user experience data and expand the discussion.
 
 ## Related
 
