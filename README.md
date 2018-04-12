@@ -12,7 +12,7 @@ When publishing this work, I have noticed myself using the Mozilla add-on site a
 
 ## What it does and why it does?
 
-This dynamic theme adapts the browser main theme (toolbar) to web sites or content from sites. The aim of the project is to explore a phenomena perceived as immersion experiences. When an user is visiting a web site she or he in fact partially surrender an interface to the site. The proposition here, or a provocation since we don't know yet this is ideal or not, is to allow a reflection — can or should a web site also affect the browser interface partially?
+This dynamic theme adapts the browser main theme (toolbar) to web sites or content from sites. The aim of the project is to explore a phenomena that can be perceived as immersion experience. When an user is visiting a web site she or he in fact partially surrender an interface to the site. The proposition here, or a provocation since we don't know yet this is ideal or not, is to allow a reflection — can or should a web site also affect the browser interface partially?
 
 This can be a complex discussion exactly because the user needs a resting place, a place to be safe when navigating the web. Since the user can eventually stumble in malicious web content, there is always the question about how the browser interfaces endorses the content.
 
