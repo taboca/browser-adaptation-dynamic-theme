@@ -57,6 +57,10 @@ This dynamic theme adapts to web sites and apps or fixed bars.
 
 # Research
 
+## Android Status Bar Color Setting from Apps
+
+* Users of Android are used to the experience of the mobile status bar matching certain apps (first became apparent with Google apps) since Lollipop. In the Android framework, the behavior can be accomplished via directly using the [Android View API's setStatusBarColor method](https://developer.android.com/reference/android/view/Window.html#setStatusBarColor(int)). 
+
 ## Inverting Page Contents Inverts Toolbars
 
 * Use Case @ FirefoxInvertColors Project — this project is an extension that promises to invert the colors. This is an interesting case to pay attention and to reason about what would happen when the page change content color. This may also signal some interesting ways to sniff/check current page color values. https://github.com/Max-Github/FireFoxInvertColors.
