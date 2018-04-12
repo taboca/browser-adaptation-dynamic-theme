@@ -73,7 +73,7 @@ I wonder if it would be possible to better integrate Add-ons, APIs, tests and th
 
 # Research
 
-## Reflections — Inverting Page Contents Inverts Toolbars
+## Inverting Page Contents Inverts Toolbars
 
 * Use Case @ FirefoxInvertColors Project — this project is an extension that promises to invert the colors. This is an interesting case to pay attention and to reason about what would happen when the page change content color. This may also signal some interesting ways to sniff/check current page color values. https://github.com/Max-Github/FireFoxInvertColors.
 
