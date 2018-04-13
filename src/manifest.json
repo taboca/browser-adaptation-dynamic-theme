@@ -1,8 +1,8 @@
 {
-  "description": "Theme Matcher Dynamic Theme",
+  "description": "Chameleon Dynamic Theme",
   "homepage_url": "https://github.com/taboca/themematcher",
   "manifest_version": 2,
-  "name": "Theme Matcher by Taboca",
+  "name": "Chameleon Dynamic Theme",
   "permissions": [
     "tabs",
     "<all_urls>",
@@ -11,7 +11,10 @@
   "background": {
     "scripts": ["background.js"]
   },
-  "version": "1.0",
+  "options_ui": {
+       "page": "options.html",
+       "browser_style": true
+  },  "version": "1.0",
   "applications": {
     "gecko": {
       "strict_min_version": "55.0a2"

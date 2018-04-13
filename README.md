@@ -28,10 +28,9 @@ When publishing this work, I have noticed myself using the Mozilla add-on site a
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/30_blend_navbar_2.png)
 
-### Browser blends with its own content — when the user visited a preference page 
+### Browser blends with its own content — when the user visited a preference page
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/10_blend_about.png)
-
 
 ## What it does and why it does?
 
@@ -41,22 +40,13 @@ This can be a complex discussion exactly because the user needs a resting place,
 
 Nevertheless, this project is here so we can explore the good opportunities, first. Can we imagine a safe web and if so would it make sense to have the browser fully adapt to the site? Of course, once you allow yourself to reason about that; it's of course quite important to reason about the negative aspects as well.  
 
+## Collateral intentions of the project
 
+* Add-on Example - this is meant as an example for Add-ons, specifically this shows potential usage for the new dynamic theme API in Firefox. For additional information please refer to [Dynamic themes](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic_themes), [New Theming API in Firefox](https://hacks.mozilla.org/2017/12/using-the-new-theming-api-in-firefox) and [Theme Properties](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/theme).
 
-## What it shows and what is aimed at:
+* Discussion - The project is also aimed to spark a discussion about the notion/experience that impacts the user when/if the browser decides to adapts its content UI real state based in site contents. An example of an adaptation, already in place and which users are accostumed, is the URL bar: When the user visits a web site, she/he should be able to visually undestand if the URL have changed, for example. In addition, the URL bar should also indicate if a web site is secure (https) using visual elements. To instigate a deeper discussion, I have created the issue [ The browser real state and the page real state - Should a malicious web site change the color of the browser toolbar? #4](https://github.com/taboca/themematcher/issues/4). 
 
-* How to use the dynamic theme API. For additional information please refer to [Dynamic themes](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic_themes).
-* A reflection about the notion of a browser adapting to site contents.
-* Collecting user experience data and expand the discussion.
-
-## Related
-
-* https://hacks.mozilla.org/2017/12/using-the-new-theming-api-in-firefox/
-* Properties for theme https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/theme
-
-## Add-on listing
-
-*
+* Research and analysis - Collecting user experience data, understand potential problems and expand the domain of the discussion.
 
 ## Heuristics
 

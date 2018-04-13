@@ -1,5 +1,6 @@
 
 function updateActiveTab(tabs) {
+
   function isSupportedProtocol(urlString) {
     var supportedProtocols = ["about:"];
     var url = document.createElement('a');
@@ -97,4 +98,4 @@ async function getCurrentThemeInfo()
 }
 
 
-console.log('marcio')
+console.log('Chameleon Dynamic Theme')
