@@ -18,6 +18,25 @@ This can be a complex discussion exactly because the user needs a resting place,
 
 Nevertheless, this project is here so we can explore the good opportunities, first. Can we imagine a safe web and if so would it make sense to have the browser fully adapt to the site? Of course, once you allow yourself to reason about that; it's of course quite important to reason about the negative aspects as well.  
 
+## Let's jump to screenshots and use cases
+
+### Matching the master header
+
+![](https://raw.githubusercontent.com/taboca/themematcher/master/images/40_addons_developer_main.png)
+
+![](https://raw.githubusercontent.com/taboca/themematcher/master/images/50_developer_hub.png)
+
+### Browser blends with tab content's navbar
+
+![](https://raw.githubusercontent.com/taboca/themematcher/master/images/20_blend_navbar.png)
+
+![](https://raw.githubusercontent.com/taboca/themematcher/master/images/30_blend_navbar_2.png)
+
+### Browser blends with its own content (about:)
+
+![](https://raw.githubusercontent.com/taboca/themematcher/master/images/10_blend_about.png)
+
+
 ## What it shows and what is aimed at:
 
 * How to use the dynamic theme API. For additional information please refer to [Dynamic themes](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic_themes).
@@ -44,24 +63,6 @@ Nevertheless, this project is here so we can explore the good opportunities, fir
 * Graphics analysis looks at a section cut, vertical line, first 10 pixels
 * Text color calculation heuristics
 * Favicon analysis
-
-## Screenshots and use cases
-
-### Matching the master header
-
-![](https://raw.githubusercontent.com/taboca/themematcher/master/images/40_addons_developer_main.png)
-
-![](https://raw.githubusercontent.com/taboca/themematcher/master/images/50_developer_hub.png)
-
-### Browser blends with tab content's navbar
-
-![](https://raw.githubusercontent.com/taboca/themematcher/master/images/20_blend_navbar.png)
-
-![](https://raw.githubusercontent.com/taboca/themematcher/master/images/30_blend_navbar_2.png)
-
-### Browser blends with its own content (about:)
-
-![](https://raw.githubusercontent.com/taboca/themematcher/master/images/10_blend_about.png)
 
 # Research
 

@@ -31,7 +31,7 @@ function onCaptured(imageUri) {
   //console.log('doc is ' + document);
 
   canvas = document.createElement('canvas');
-  canvas.width = 100;
+  canvas.width  = 100;
   canvas.height = 100;
   canvasContext = canvas.getContext('2d');
   //canvasContext.scale(1 / window.devicePixelRatio, 1 / window.devicePixelRatio);
