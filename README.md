@@ -12,19 +12,23 @@ When publishing this work, I have noticed myself using the Mozilla add-on site a
 
 ## Let's jump to screenshots and use cases
 
-### Matching the master header
+### Matching the master header — when the user visited addons.mozilla.org
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/40_addons_developer_main.png)
 
+### Matching the master header — when the user visited Mozilla Developer Hub
+
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/50_developer_hub.png)
 
-### Browser blends with tab content's navbar
+### Browser blends with tab content's navbar — when the user visited Mozilla.org
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/20_blend_navbar.png)
 
+### Browser blends with tab content's navbar — when the user visited a traditional Brazilian bank
+
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/30_blend_navbar_2.png)
 
-### Browser blends with its own content (about:)
+### Browser blends with its own content — when the user visited a preference page 
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/10_blend_about.png)
 
