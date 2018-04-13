@@ -1,22 +1,36 @@
+let indexedColorMap   = new Array();
+let capturingTabColor = null;
 
 function updateActiveTab(tabs) {
 
-  function isSupportedProtocol(urlString) {
-    var supportedProtocols = ["about:"];
-    var url = document.createElement('a');
-    url.href = urlString;
-    return supportedProtocols.indexOf(url.protocol) != -1;
-  }
-  function updateTab(tabs) {
-    if (tabs[0]) {
-      var capturing = browser.tabs.captureVisibleTab();
-      capturing.then(onCaptured, onError);
-    }
-  }
-  var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-  gettingActiveTab.then(updateTab);
+    function updateTab(tabs) {
+        if (tabs[0]) {
 
-  getCurrentThemeInfo();
+          var tabURLkey = tabs[0].url;
+
+          if(tabURLkey in indexedColorMap) {
+
+            console.log('From the cache');
+            var colorObject = indexedColorMap[tabURLkey];
+            var themeProposal = {
+              colors: colorObject
+            }
+            browser.theme.update(themeProposal);
+
+          } else {
+              capturingTabColor = tabURLkey;
+              var capturing = browser.tabs.captureVisibleTab();
+              capturing.then(onCaptured, onError);
+          }
+        }
+    }
+
+    var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+    gettingActiveTab.then(updateTab);
+
+
+
+  //getCurrentThemeInfo();
 
 }
 
@@ -30,6 +44,7 @@ updateActiveTab();
 function onCaptured(imageUri) {
   //console.log(imageUri);
   //console.log('doc is ' + document);
+
 
   canvas = document.createElement('canvas');
   canvas.width  = 100;
@@ -62,14 +77,22 @@ function onCaptured(imageUri) {
       textC=0;
     }
 
+    var colorObject = {
+      accentcolor: 'rgb('+color.r+','+color.g+','+color.b+')',
+      textcolor: 'rgb('+textC+','+textC+','+textC+')',
+      toolbar_bottom_separator: 'rgb('+color.r+','+color.g+','+color.b+')',
+      toolbar : 'rgb('+color.r+','+color.g+','+color.b+')'
+    };
+
     var themeProposal = {
-      colors: {
-        accentcolor: 'rgb('+color.r+','+color.g+','+color.b+')',
-        textcolor: 'rgb('+textC+','+textC+','+textC+')',
-        toolbar_bottom_separator: 'rgb('+color.r+','+color.g+','+color.b+')',
-        toolbar : 'rgb('+color.r+','+color.g+','+color.b+')'
-      }
+      colors: colorObject
     }
+
+    if(capturingTabColor) {
+      indexedColorMap[capturingTabColor] = colorObject;
+      capturingTabColor = null;
+    }
+
     browser.theme.update(themeProposal);
   }
   image.src=imageUri;
@@ -96,6 +119,5 @@ async function getCurrentThemeInfo()
   var themeInfo = await browser.theme.getCurrent();
   getStyle(themeInfo);
 }
-
 
 console.log('Chameleon Dynamic Theme')
