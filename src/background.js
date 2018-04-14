@@ -1,40 +1,56 @@
 let indexedColorMap   = new Array();
 let capturingTabColor = null;
 
+function delayedStore() {
+  capturingTabColor = null;
+}
+
+/* This is more aggressive override..*/
+
+function updateActiveTab_pageloaded(tabs) {
+      function updateTab(tabs) {
+        if (tabs[0]) {
+          var tabURLkey = tabs[0].url;
+
+          capturingTabColor = tabURLkey;
+          //setTimeout(delayedStore, 2000);
+          var capturing = browser.tabs.captureVisibleTab();
+          capturing.then(onCaptured, onError);
+        }
+      }
+
+      var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+      gettingActiveTab.then(updateTab);
+
+}
+
 function updateActiveTab(tabs) {
 
     function updateTab(tabs) {
         if (tabs[0]) {
-
           var tabURLkey = tabs[0].url;
-
           if(tabURLkey in indexedColorMap) {
-
             console.log('From the cache');
             var colorObject = indexedColorMap[tabURLkey];
             var themeProposal = {
               colors: colorObject
             }
             browser.theme.update(themeProposal);
-
           } else {
-              capturingTabColor = tabURLkey;
-              var capturing = browser.tabs.captureVisibleTab();
-              capturing.then(onCaptured, onError);
+            capturingTabColor = tabURLkey;
+            //setTimeout(delayedStore, 2000);
+            var capturing = browser.tabs.captureVisibleTab();
+            capturing.then(onCaptured, onError);
           }
         }
     }
 
     var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
     gettingActiveTab.then(updateTab);
-
-
-
   //getCurrentThemeInfo();
-
 }
 
-browser.tabs.onUpdated.addListener(updateActiveTab);
+browser.tabs.onUpdated.addListener(updateActiveTab_pageloaded);
 browser.tabs.onActivated.addListener(updateActiveTab);
 browser.windows.onFocusChanged.addListener(updateActiveTab);
 
@@ -72,9 +88,9 @@ function onCaptured(imageUri) {
     var textC = parseInt((parseInt(255-color.r) + parseInt(255-color.g) + parseInt(255-color.b))/3);
 
     if(textC>128) {
-      textC=255
+        textC=255
     } else {
-      textC=0;
+        textC=0;
     }
 
     var colorObject = {
@@ -89,8 +105,8 @@ function onCaptured(imageUri) {
     }
 
     if(capturingTabColor) {
+      console.log('Capturing...')
       indexedColorMap[capturingTabColor] = colorObject;
-      capturingTabColor = null;
     }
 
     browser.theme.update(themeProposal);
