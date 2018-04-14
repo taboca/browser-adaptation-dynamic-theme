@@ -1,6 +1,7 @@
 let indexedColorMap   = new Array();
 let indexedStateMap   = new Array();
 let currentActiveTab  = null;
+let pendingApplyColor = null;
 
 /* This is more aggressive override..*/
 
@@ -11,6 +12,11 @@ function updateActiveTab_pageloaded(tabId, changeInfo) {
       function updateTab(tabs) {
         if (tabs[0]) {
           var tabURLkey = tabs[0].url;
+
+          if(pendingApplyColor) {
+            indexedStateMap[tabURLkey] = 3;
+            pendingApplyColor = null;
+          }
 
           if(indexedStateMap[tabURLkey] != 3 && changeInfo.status == 'complete') {
             console.log("Will capture from update = complete: " + indexedStateMap[tabURLkey])
@@ -31,8 +37,14 @@ function updateActiveTab(tabId, changeInfo) {
     function updateTab(tabs) {
         if (tabs[0]) {
           var tabURLkey = tabs[0].url;
+
+          if(pendingApplyColor) {
+            indexedStateMap[tabURLkey] = 3;
+            pendingApplyColor = null;
+          }
+
           if(tabURLkey in indexedColorMap) {
-            console.log('From the cache');
+            console.log('From the cache: ' + tabURLkey);
             var colorObject = indexedColorMap[tabURLkey];
             var themeProposal = {
               colors: colorObject
@@ -161,11 +173,10 @@ function notify(message) {
           colors: colorObject
         }
 
-        if(currentActiveTab) {
-          console.log('Setting index ' + message.value + ' from page...')
-          indexedColorMap[currentActiveTab] = colorObject;
-          indexedStateMap[currentActiveTab] = 3;
-        }
+        console.log('Setting index ' + message.value + ' from next page..');
+        //indexedColorMap[currentActiveTab] = colorObject;
+        //indexedStateMap[currentActiveTab] = 3;
+        pendingApplyColor = colorObject;
 
         browser.theme.update(themeProposal);
     }
