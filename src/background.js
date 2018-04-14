@@ -6,11 +6,14 @@ let currentActiveTab  = null;
 
 function updateActiveTab_pageloaded(tabId, changeInfo) {
 
+      console.log(changeInfo.status);
+
       function updateTab(tabs) {
         if (tabs[0]) {
           var tabURLkey = tabs[0].url;
 
-          if(indexedStateMap[tabURLkey] != 3 ) {
+          if(indexedStateMap[tabURLkey] != 3 && changeInfo.status == 'complete') {
+            console.log("Will capture from update = complete: " + indexedStateMap[tabURLkey])
             currentActiveTab = tabURLkey;
             var capturing = browser.tabs.captureVisibleTab();
             capturing.then(onCaptured, onError);

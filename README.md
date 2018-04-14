@@ -34,9 +34,11 @@ When publishing this work, I have noticed myself using the Mozilla add-on site a
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/30_blend_navbar_2.png)
 
-### Browser blends with its own content — when the user visited a preference page
+### Browser content pages
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/10_blend_about.png)
+
+![](https://raw.githubusercontent.com/taboca/themematcher/master/images/60_private.png)
 
 ## What it does and why it does?
 
