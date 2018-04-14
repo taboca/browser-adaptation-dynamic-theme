@@ -1,38 +1,29 @@
 let indexedColorMap   = new Array();
 let indexedStateMap   = new Array();
-let capturingTabColor = null;
-
-function delayedStore() {
-  capturingTabColor = null;
-}
+let currentActiveTab  = null;
 
 /* This is more aggressive override..*/
 
-function updateActiveTab_pageloaded(tab) {
+function updateActiveTab_pageloaded(tabId, changeInfo) {
 
-  if(tab) {
-    var tabURLkey = tab.url;
-    if(tabURLkey in indexedStateMap) {
-        if(indexedStateMap[tabURLkey] != 3) {
-          function updateTab(tabs) {
-            if (tabs[0]) {
-              var tabURLkey = tabs[0].url;
+      function updateTab(tabs) {
+        if (tabs[0]) {
+          var tabURLkey = tabs[0].url;
 
-              capturingTabColor = tabURLkey;
-              //setTimeout(delayedStore, 2000);
-              var capturing = browser.tabs.captureVisibleTab();
-              capturing.then(onCaptured, onError);
-            }
+          if(indexedStateMap[tabURLkey] != 3 ) {
+            currentActiveTab = tabURLkey;
+            var capturing = browser.tabs.captureVisibleTab();
+            capturing.then(onCaptured, onError);
           }
-          var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-          gettingActiveTab.then(updateTab);
+
         }
-    }
-  }
+      }
+      var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+      gettingActiveTab.then(updateTab);
 
 }
 
-function updateActiveTab() {
+function updateActiveTab(tabId, changeInfo) {
 
     function updateTab(tabs) {
         if (tabs[0]) {
@@ -45,8 +36,7 @@ function updateActiveTab() {
             }
             browser.theme.update(themeProposal);
           } else {
-            capturingTabColor = tabURLkey;
-            indexedStateMap[tabURLkey] = 0;
+            currentActiveTab = tabURLkey;
             //setTimeout(delayedStore, 2000);
             var capturing = browser.tabs.captureVisibleTab();
             capturing.then(onCaptured, onError);
@@ -56,7 +46,7 @@ function updateActiveTab() {
 
     var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
     gettingActiveTab.then(updateTab);
-    //getCurrentThemeInfo();
+  //getCurrentThemeInfo();
 }
 
 browser.tabs.onUpdated.addListener(updateActiveTab_pageloaded);
@@ -113,9 +103,9 @@ function onCaptured(imageUri) {
       colors: colorObject
     }
 
-    if(capturingTabColor) {
+    if(currentActiveTab) {
       console.log('Capturing...')
-      indexedColorMap[capturingTabColor] = colorObject;
+      indexedColorMap[currentActiveTab] = colorObject;
     }
 
     browser.theme.update(themeProposal);
@@ -153,6 +143,7 @@ function notify(message) {
 
   //console.log('Notify from page:' + JSON.stringify(message))
   if('kind' in message) {
+
     if(message.kind=='theme-color') {
         console.log('Loaded from script: ' + message.kind);
 
@@ -167,10 +158,10 @@ function notify(message) {
           colors: colorObject
         }
 
-        if(capturingTabColor) {
+        if(currentActiveTab) {
           console.log('Setting index ' + message.value + ' from page...')
-          indexedColorMap[capturingTabColor] = colorObject;
-          indexedStateMap[capturingTabColor] = 3;
+          indexedColorMap[currentActiveTab] = colorObject;
+          indexedStateMap[currentActiveTab] = 3;
         }
 
         browser.theme.update(themeProposal);
