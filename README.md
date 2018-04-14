@@ -2,6 +2,12 @@
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/logo.png)
 
+## Demonstration
+
+Browser theme adapting to web sites:
+
+![](http://www.mgalli.com/development/quantum/demo-tabs-theme-dynamic.gif)
+
 ## Introduction
 
 This is a prototype for a Firefox theme, however using a UX-oriented mindset; this project is aimed as a reflection, therefore it's beyond its initial code. The Add-on experiment is currently available for Firefox Quantum and published at [Chameleon Dynamic Theme Firefox Add-on](https://addons.mozilla.org/pt-BR/firefox/addon/chameleon-dynamic-theme/).
