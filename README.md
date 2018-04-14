@@ -64,7 +64,7 @@ Nevertheless, this project is here so we can explore the good opportunities, fir
 
 ### When a theme information is present in an HTML page
 
-For old-HTML school people, like me, the background reasoning would be to think that the browser could be smart to sniff the bgcolor from a page. Nowadays there are other solutions and emerging proposals in place, such as the HTML meta "theme-color" which works for Android — see [Support for theme-color in Chrome 39 for Android](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android).
+There are existing solutions and emerging proposals in place and some degree of compatibility offered by other browser projects. One of the currently wotking is the "theme-color" which works for Chrome in Android according to [Support for theme-color in Chrome 39 for Android](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android). From the Google groups check [Intent to Implement and ship: brand-color meta tag](https://groups.google.com/a/chromium.org/forum/#!msg/blink-dev/nzRY-h_-_ig/IeXq74xUWzkJ) which dates from 2014. From the Apple side, consider [Apple-Specific Meta Tag Keys: apple-mobile-web-app-status-bar-style]. In the Mozilla front consider the bug [Add meta name="theme-color" to have configurable status bar color](https://bugzilla.mozilla.org/show_bug.cgi?id=1013913).
 
 ### The theme identity for "chrome" or browser pages
 
