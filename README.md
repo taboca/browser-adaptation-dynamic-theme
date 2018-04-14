@@ -16,21 +16,17 @@ The idea is to consider how a browser can/should blend with the actual content t
 
 When publishing this work, I have noticed myself using the Mozilla add-on site as a place for UX discussions. For example, I have decided to add screenshots however each screenshot aimed to discuss cases. At the same time noticed how add-ons sites could be improved around these discussions perhaps. If you want to jump to a reflection about the Add-ons site see bellow.
 
-## Let's jump to screenshots and use cases
+## Screenshots and use cases
 
-### Matching the master header — when the user visited addons.mozilla.org
+### Automatically matches with master header
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/40_addons_developer_main.png)
-
-### Matching the master header — when the user visited Mozilla Developer Hub
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/50_developer_hub.png)
 
 ### Browser blends with tab content's navbar — when the user visited Mozilla.org
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/20_blend_navbar.png)
-
-### Browser blends with tab content's navbar — when the user visited a traditional Brazilian bank
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/30_blend_navbar_2.png)
 
@@ -39,6 +35,10 @@ When publishing this work, I have noticed myself using the Mozilla add-on site a
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/10_blend_about.png)
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/60_private.png)
+
+### Compatible with the meta-tag "theme-color" similar to Chrome in Android
+
+![](https://raw.githubusercontent.com/taboca/themematcher/master/images/70_load_meta.png)
 
 ## What it does and why it does?
 
