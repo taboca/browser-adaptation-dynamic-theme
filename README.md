@@ -54,7 +54,7 @@ Nevertheless, this project is here so we can explore the good opportunities, fir
 
 * Research and analysis - Collecting user experience data, understand potential problems and expand the domain of the discussion.
 
-## Discussions & heuristics
+## Discussions
 
 * Options - users should be able to customize what data from site is turned into the theme.
 
@@ -62,9 +62,14 @@ Nevertheless, this project is here so we can explore the good opportunities, fir
 
 * When navbar — If the site has navbar, adapts to navbar and removes the bottom border of the theme;
 
-* When bgcolor – If the site has background color, adapts to background color
+### When a theme information is present in an HTML page
 
-* When chrome — Page background and removes bottom border.
+For old-HTML school people, like me, the background reasoning would be to think that the browser could be smart to sniff the bgcolor from a page. Nowadays there are other solutions and emerging proposals in place, such as the HTML meta "theme-color" which works for Android — see [Support for theme-color in Chrome 39 for Android](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android).
+
+### The theme identity for "chrome" or browser pages
+
+When the user is visiting the browser itself, the same idea would apply and perhaps a step further could be accomplished. At this stage we propose the bottom border of the toolbar to be removed but perhaps a background identify would overflow from the page to the browser bar, like a water mark perhaps proving that both content and the browser bars as the same.
+
 
 ### Calculations
 
