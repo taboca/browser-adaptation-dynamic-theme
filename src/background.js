@@ -90,37 +90,18 @@ function onCaptured(imageUri) {
     canvasData = canvasContext.getImageData(0, 0, 100, 10).data;
     canvasIndex = 510*4;
 
-    var color = {
+    let color = {
         r: canvasData[canvasIndex],
         g: canvasData[canvasIndex + 1],
         b: canvasData[canvasIndex + 2],
         alpha: canvasData[canvasIndex + 3]
     };
 
-    //console.log('Color R:' + color.r + ' G:' + color.g + ' B:' + color.b );
-
-    var textC = parseInt((parseInt(255-color.r) + parseInt(255-color.g) + parseInt(255-color.b))/3);
-
-    if(textC>128) {
-        textC=255
-    } else {
-        textC=0;
-    }
-
-    var colorObject = {
-      accentcolor: 'rgb('+color.r+','+color.g+','+color.b+')',
-      textcolor: 'rgb('+textC+','+textC+','+textC+')',
-      toolbar_bottom_separator: 'rgb('+color.r+','+color.g+','+color.b+')',
-      toolbar : 'rgb('+color.r+','+color.g+','+color.b+')'
-    };
-
-    var themeProposal = {
-      colors: colorObject
-    }
+    let themeProposal = util_themePackage(color);
 
     if(currentActiveTab) {
       console.log('Capturing...')
-      indexedColorMap[currentActiveTab] = colorObject;
+      indexedColorMap[currentActiveTab] = themeProposal.colors;
     }
 
     browser.theme.update(themeProposal);
@@ -150,8 +131,6 @@ async function getCurrentThemeInfo()
   getStyle(themeInfo);
 }
 
-console.log('Chameleon Dynamic Theme')
-
 /* Receiving message */
 
 function notify(message) {
@@ -161,22 +140,9 @@ function notify(message) {
 
     if(message.kind=='theme-color') {
         console.log('Loaded from script: ' + message.kind);
-
-        var colorObject = {
-          accentcolor: message.value,
-          textcolor: 'white',
-          toolbar_bottom_separator: message.value,
-          toolbar : message.value
-        };
-
-        var themeProposal = {
-          colors: colorObject
-        }
-
+        let themeProposal = util_themePackage(util_hexToRgb(message.value));
         console.log('Setting index ' + message.value + ' from next page..');
-        //indexedColorMap[currentActiveTab] = colorObject;
-        //indexedStateMap[currentActiveTab] = 3;
-        pendingApplyColor = colorObject;
+        pendingApplyColor = themeProposal.colors;
 
         browser.theme.update(themeProposal);
     }
@@ -184,3 +150,37 @@ function notify(message) {
 }
 
 browser.runtime.onMessage.addListener(notify);
+
+// https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+function util_hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
+
+function util_themePackage(color) {
+
+  let textC = parseInt((parseInt(255-color.r) + parseInt(255-color.g) + parseInt(255-color.b))/3);
+
+  if(textC>128) {
+      textC=255
+  } else {
+      textC=0;
+  }
+
+  let colorObject = {
+    accentcolor : 'rgb('+color.r+','+color.g+','+color.b+')',
+    textcolor   : 'rgb('+textC+','+textC+','+textC+')',
+    toolbar_bottom_separator: 'rgb('+color.r+','+color.g+','+color.b+')',
+    toolbar : 'rgb('+color.r+','+color.g+','+color.b+')'
+  };
+
+  let themeProposal = {
+    colors: colorObject
+  }
+
+  return themeProposal;
+}
