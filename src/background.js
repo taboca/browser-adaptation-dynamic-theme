@@ -1,4 +1,5 @@
 let indexedColorMap   = new Array();
+let indexedStateMap   = new Array();
 let capturingTabColor = null;
 
 function delayedStore() {
@@ -8,19 +9,26 @@ function delayedStore() {
 /* This is more aggressive override..*/
 
 function updateActiveTab_pageloaded(tabs) {
-      function updateTab(tabs) {
-        if (tabs[0]) {
-          var tabURLkey = tabs[0].url;
 
-          capturingTabColor = tabURLkey;
-          //setTimeout(delayedStore, 2000);
-          var capturing = browser.tabs.captureVisibleTab();
-          capturing.then(onCaptured, onError);
+  if(tabs[0]) {
+    var tabURLkey = tabs[0].url;
+    if(tabURLkey in indexedStateMap) {
+        if(indexedStateMap[tabURLkey] != 3) {
+          function updateTab(tabs) {
+            if (tabs[0]) {
+              var tabURLkey = tabs[0].url;
+
+              capturingTabColor = tabURLkey;
+              //setTimeout(delayedStore, 2000);
+              var capturing = browser.tabs.captureVisibleTab();
+              capturing.then(onCaptured, onError);
+            }
+          }
+          var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+          gettingActiveTab.then(updateTab);
         }
-      }
-
-      var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-      gettingActiveTab.then(updateTab);
+    }
+  }
 
 }
 
@@ -38,6 +46,7 @@ function updateActiveTab(tabs) {
             browser.theme.update(themeProposal);
           } else {
             capturingTabColor = tabURLkey;
+            indexedStateMap[tabURLkey] = 0;
             //setTimeout(delayedStore, 2000);
             var capturing = browser.tabs.captureVisibleTab();
             capturing.then(onCaptured, onError);
@@ -137,3 +146,36 @@ async function getCurrentThemeInfo()
 }
 
 console.log('Chameleon Dynamic Theme')
+
+/* Receiving message */
+
+function notify(message) {
+
+  //console.log('Notify from page:' + JSON.stringify(message))
+  if('kind' in message) {
+    if(message.kind=='theme-color') {
+        console.log('Loaded from script: ' + message.kind);
+
+        var colorObject = {
+          accentcolor: message.value,
+          textcolor: 'white',
+          toolbar_bottom_separator: message.value,
+          toolbar : message.value
+        };
+
+        var themeProposal = {
+          colors: colorObject
+        }
+
+        if(capturingTabColor) {
+          console.log('Setting index ' + message.value + ' from page...')
+          indexedColorMap[capturingTabColor] = colorObject;
+          indexedStateMap[capturingTabColor] = 3;
+        }
+
+        browser.theme.update(themeProposal);
+    }
+  }
+}
+
+browser.runtime.onMessage.addListener(notify);
