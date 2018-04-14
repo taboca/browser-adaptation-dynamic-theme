@@ -8,10 +8,10 @@ function delayedStore() {
 
 /* This is more aggressive override..*/
 
-function updateActiveTab_pageloaded(tabs) {
+function updateActiveTab_pageloaded(tab) {
 
-  if(tabs[0]) {
-    var tabURLkey = tabs[0].url;
+  if(tab) {
+    var tabURLkey = tab.url;
     if(tabURLkey in indexedStateMap) {
         if(indexedStateMap[tabURLkey] != 3) {
           function updateTab(tabs) {
@@ -32,7 +32,7 @@ function updateActiveTab_pageloaded(tabs) {
 
 }
 
-function updateActiveTab(tabs) {
+function updateActiveTab() {
 
     function updateTab(tabs) {
         if (tabs[0]) {
@@ -56,7 +56,7 @@ function updateActiveTab(tabs) {
 
     var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
     gettingActiveTab.then(updateTab);
-  //getCurrentThemeInfo();
+    //getCurrentThemeInfo();
 }
 
 browser.tabs.onUpdated.addListener(updateActiveTab_pageloaded);
