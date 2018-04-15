@@ -176,6 +176,10 @@ function util_custom_update(themeProposal) {
   if(configData.enableBorder) {
     delete themeProposal_copy.colors.toolbar_bottom_separator;
   }
+  if(!configData.enableGradient) {
+    delete themeProposal_copy.images;
+    delete themeProposal_copy.properties;
+  }
   browser.theme.update(themeProposal_copy);
 }
 
