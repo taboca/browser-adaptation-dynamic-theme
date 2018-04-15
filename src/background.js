@@ -148,24 +148,6 @@ function onError(error) {
   console.log(`Error: ${error}`);
 }
 
-/* Them inspection */
-
-function getStyle(themeInfo)
-{
-  console.log(JSON.stringify(themeInfo));
-  if (themeInfo.colors)
-  {
-    console.log("accent color : " +  themeInfo.colors.accentcolor);
-    console.log("toolbar : " + themeInfo.colors.toolbar);
-  }
-}
-
-async function getCurrentThemeInfo()
-{
-  var themeInfo = await browser.theme.getCurrent();
-  getStyle(themeInfo);
-}
-
 /*
   Receiving message from content scripts
 */
@@ -256,4 +238,24 @@ function util_themePackage(color) {
   }
 
   return themeProposal;
+}
+
+/*
+  Current theme inspection
+*/
+
+function getStyle(themeInfo)
+{
+  console.log(JSON.stringify(themeInfo));
+  if (themeInfo.colors)
+  {
+    console.log("accent color : " +  themeInfo.colors.accentcolor);
+    console.log("toolbar : " + themeInfo.colors.toolbar);
+  }
+}
+
+async function getCurrentThemeInfo()
+{
+  var themeInfo = await browser.theme.getCurrent();
+  getStyle(themeInfo);
 }
