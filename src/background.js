@@ -99,18 +99,10 @@ function updateActiveTab(tabId, changeInfo) {
   //getCurrentThemeInfo();
 }
 
-browser.tabs.onUpdated.addListener(updateActiveTab_pageloaded);
-browser.tabs.onActivated.addListener(updateActiveTab);
-browser.windows.onFocusChanged.addListener(updateActiveTab);
-
-updateActiveTab();
-
 // https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/tabs/captureVisibleTab
 function onCaptured(imageUri) {
   //console.log(imageUri);
   //console.log('doc is ' + document);
-
-
   canvas = document.createElement('canvas');
   canvas.width  = 100;
   canvas.height = 100;
@@ -153,31 +145,22 @@ function onError(error) {
 */
 
 function notify(message) {
-
-  //console.log('Notify from page:' + JSON.stringify(message))
   if('kind' in message) {
-
     if(message.kind=='refresh') {
-      console.log('Config:refresh...');
-
-      function refreshAsync(item) {
-        console.log("Reloading settings");
-        configData = item.configData;
-        updateActiveTab();
-      }
-
-      var gettingItem = browser.storage.local.get();
-      gettingItem.then(refreshAsync, onError);
-
-
+        //console.log('Config:refresh...');
+        function refreshAsync(item) {
+          console.log("Reloading settings");
+          configData = item.configData;
+          updateActiveTab();
+        }
+        var gettingItem = browser.storage.local.get();
+        gettingItem.then(refreshAsync, onError);
     }
 
     if(message.kind=='theme-color') {
-        console.log('Loaded from script: ' + message.kind);
         let themeProposal = util_themePackage(util_hexToRgb(message.value));
-        console.log('Setting index ' + message.value + ' from next page..');
+        //console.log('Setting index ' + message.value + ' from next page..');
         pendingApplyColor = themeProposal.colors;
-
         util_custom_update(themeProposal);
     }
   }
@@ -259,3 +242,14 @@ async function getCurrentThemeInfo()
   var themeInfo = await browser.theme.getCurrent();
   getStyle(themeInfo);
 }
+
+/*
+  Main exec functions
+
+*/
+
+browser.tabs.onUpdated.addListener(updateActiveTab_pageloaded);
+browser.tabs.onActivated.addListener(updateActiveTab);
+browser.windows.onFocusChanged.addListener(updateActiveTab);
+
+updateActiveTab();
