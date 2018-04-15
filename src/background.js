@@ -5,7 +5,7 @@ let pendingApplyColor = null;
 
 /* Config and storage */
 
-var configData = {
+let configData = {
   enableBorder      : false,
   toolbarHighlight  : false
 }
@@ -103,25 +103,24 @@ function updateActiveTab(tabId, changeInfo) {
 function onCaptured(imageUri) {
   //console.log(imageUri);
   //console.log('doc is ' + document);
-  canvas = document.createElement('canvas');
+  let canvas = document.createElement('canvas');
   canvas.width  = 100;
   canvas.height = 100;
   canvasContext = canvas.getContext('2d');
   //canvasContext.scale(1 / window.devicePixelRatio, 1 / window.devicePixelRatio);
-  var image = document.createElement('img');
+  let image = document.createElement('img');
 
   image.onload = function() {
-
     //console.log('image loaded')
     canvasContext.drawImage(image, 0,0);
     canvasData = canvasContext.getImageData(0, 0, 100, 10).data;
     canvasIndex = 510*4;
 
     let color = {
-        r: canvasData[canvasIndex],
-        g: canvasData[canvasIndex + 1],
-        b: canvasData[canvasIndex + 2],
-        alpha: canvasData[canvasIndex + 3]
+        r     : canvasData[canvasIndex],
+        g     : canvasData[canvasIndex + 1],
+        b     : canvasData[canvasIndex + 2],
+        alpha : canvasData[canvasIndex + 3]
     };
 
     let themeProposal = util_themePackage(color);
@@ -153,7 +152,7 @@ function notify(message) {
           configData = item.configData;
           updateActiveTab();
         }
-        var gettingItem = browser.storage.local.get();
+        let gettingItem = browser.storage.local.get();
         gettingItem.then(refreshAsync, onError);
     }
 
@@ -182,7 +181,7 @@ function util_custom_update(themeProposal) {
 
 // https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
 function util_hexToRgb(hex) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
         r: parseInt(result[1], 16),
         g: parseInt(result[2], 16),
@@ -239,7 +238,7 @@ function getStyle(themeInfo)
 
 async function getCurrentThemeInfo()
 {
-  var themeInfo = await browser.theme.getCurrent();
+  let themeInfo = await browser.theme.getCurrent();
   getStyle(themeInfo);
 }
 
