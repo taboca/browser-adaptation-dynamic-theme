@@ -72,11 +72,19 @@ function updateActiveTab(tabId, changeInfo) {
 
           if(tabURLkey in indexedColorMap) {
             console.log('From the cache: ' + tabURLkey);
-            var colorObject = indexedColorMap[tabURLkey];
-            var themeProposal = {
-              colors: colorObject
-            }
+            let colorObject = indexedColorMap[tabURLkey];
+
+            let color = {
+                r: 0,
+                g: 0,
+                b: 0,
+                alpha: 0
+            };
+
+            let themeProposal = util_themePackage(color);
+            themeProposal.colors = colorObject;
             util_custom_update(themeProposal);
+
           } else {
             currentActiveTab = tabURLkey;
             //setTimeout(delayedStore, 2000);
@@ -195,7 +203,7 @@ browser.runtime.onMessage.addListener(notify);
 
 function util_custom_update(themeProposal) {
 
-  // If we change the JSON objec it will affect the global reference 
+  // If we change the JSON objec it will affect the global reference
   //let themeProposal2 = Object.assign({}, themeProposal, {})
   let themeProposal2 = JSON.parse(JSON.stringify(themeProposal));
 
@@ -230,12 +238,21 @@ function util_themePackage(color) {
   let colorObject = {
     accentcolor : 'rgb('+color.r+','+color.g+','+color.b+')',
     textcolor   : 'rgb('+textC+','+textC+','+textC+')',
-    toolbar : 'rgb('+color.r+','+color.g+','+color.b+')',
+    toolbar     : 'rgb('+color.r+','+color.g+','+color.b+')',
     toolbar_bottom_separator : 'rgb('+color.r+','+color.g+','+color.b+')'
   };
 
   let themeProposal = {
-    colors: colorObject
+    colors : colorObject,
+    images : {
+//      headerURL              : 'background.svg',
+      additional_backgrounds : [ "background.svg"]
+    },
+    properties: {
+      additional_backgrounds_alignment : [ "top" ],
+      additional_backgrounds_tiling    : [ "repeat"  ]
+    }
+
   }
 
   return themeProposal;
