@@ -166,7 +166,9 @@ async function getCurrentThemeInfo()
   getStyle(themeInfo);
 }
 
-/* Receiving message */
+/*
+  Receiving message from content scripts
+*/
 
 function notify(message) {
 
