@@ -3,6 +3,33 @@ let indexedStateMap   = new Array();
 let currentActiveTab  = null;
 let pendingApplyColor = null;
 
+/* Config and storage */
+
+var configData = {
+  enableBorder      : false,
+  toolbarHighlight  : false
+}
+
+function checkStoredSettings(item) {
+  if (!item.configData) {
+    console.log("Config: first time initializing in storage...")
+    browser.storage.local.set({configData});
+  } else {
+    console.log("Config: exists in storage...")
+    configData = item.configData;
+  }
+
+  console.log("Config settings: " + JSON.stringify(configData));
+
+}
+
+function onError(error) {
+  console.log(`Error: ${error}`);
+}
+
+var gettingItem = browser.storage.local.get();
+gettingItem.then(checkStoredSettings, onError);
+
 /* This is more aggressive override..*/
 
 function updateActiveTab_pageloaded(tabId, changeInfo) {
@@ -49,7 +76,7 @@ function updateActiveTab(tabId, changeInfo) {
             var themeProposal = {
               colors: colorObject
             }
-            browser.theme.update(themeProposal);
+            util_custom_update(themeProposal);
           } else {
             currentActiveTab = tabURLkey;
             //setTimeout(delayedStore, 2000);
@@ -104,7 +131,7 @@ function onCaptured(imageUri) {
       indexedColorMap[currentActiveTab] = themeProposal.colors;
     }
 
-    browser.theme.update(themeProposal);
+    util_custom_update(themeProposal);
   }
   image.src=imageUri;
 }
@@ -138,18 +165,44 @@ function notify(message) {
   //console.log('Notify from page:' + JSON.stringify(message))
   if('kind' in message) {
 
+    if(message.kind=='refresh') {
+      console.log('Config:refresh...');
+
+      function refreshAsync(item) {
+        console.log("Reloading settings");
+        configData = item.configData;
+        updateActiveTab();
+      }
+
+      var gettingItem = browser.storage.local.get();
+      gettingItem.then(refreshAsync, onError);
+
+
+    }
+
     if(message.kind=='theme-color') {
         console.log('Loaded from script: ' + message.kind);
         let themeProposal = util_themePackage(util_hexToRgb(message.value));
         console.log('Setting index ' + message.value + ' from next page..');
         pendingApplyColor = themeProposal.colors;
 
-        browser.theme.update(themeProposal);
+        util_custom_update(themeProposal);
     }
   }
 }
 
 browser.runtime.onMessage.addListener(notify);
+
+function util_custom_update(themeProposal) {
+
+  if(configData.enableBorder) {
+    console.log("Enable border!!!")
+    themeProposal.colors['toolbar_bottom_separator'] = null;
+  } else {
+  }
+  browser.theme.update(themeProposal);
+
+}
 
 // https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
 function util_hexToRgb(hex) {
@@ -174,8 +227,8 @@ function util_themePackage(color) {
   let colorObject = {
     accentcolor : 'rgb('+color.r+','+color.g+','+color.b+')',
     textcolor   : 'rgb('+textC+','+textC+','+textC+')',
-    toolbar_bottom_separator: 'rgb('+color.r+','+color.g+','+color.b+')',
-    toolbar : 'rgb('+color.r+','+color.g+','+color.b+')'
+    toolbar : 'rgb('+color.r+','+color.g+','+color.b+')',
+    toolbar_bottom_separator : 'rgb('+color.r+','+color.g+','+color.b+')'
   };
 
   let themeProposal = {

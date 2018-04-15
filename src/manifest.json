@@ -5,6 +5,7 @@
   "name": "Chameleon Dynamic Theme",
   "permissions": [
     "tabs",
+    "storage",
     "<all_urls>",
     "theme"
   ],
