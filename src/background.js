@@ -4,10 +4,12 @@ let currentActiveTab  = null;
 let pendingApplyColor = null;
 
 /* Config and storage */
+
 var configData = {
   enableBorder      : false,
   enableGradient    : false,
   enableAccent      : true,
+  enableTabLine     : true,
   enableToolbarOverride : true
 }
 
@@ -186,6 +188,9 @@ function util_custom_update(themeProposal) {
   if(!configData.enableToolbarOverride) {
     delete themeProposal_copy.colors.toolbar;
   }
+  if(!configData.enableTabLine) {
+    delete themeProposal_copy.colors.tab_line;
+  }
 
   browser.theme.update(themeProposal_copy);
 }
@@ -214,6 +219,7 @@ function util_themePackage(color) {
     accentcolor : 'rgb('+color.r+','+color.g+','+color.b+')',
     textcolor   : 'rgb('+textC+','+textC+','+textC+')',
     toolbar     : 'rgb('+color.r+','+color.g+','+color.b+')',
+    tab_line    : 'rgb('+textC+','+textC+','+textC+')',
     toolbar_bottom_separator : 'rgb('+color.r+','+color.g+','+color.b+')'
   };
 

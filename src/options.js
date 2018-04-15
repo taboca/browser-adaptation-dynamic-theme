@@ -3,6 +3,7 @@ var configData = {
   enableBorder      : false,
   enableGradient    : false,
   enableAccent      : true,
+  enableTabLine     : true,
   enableToolbarOverride : true
 }
 
@@ -17,6 +18,12 @@ function checkStoredSettings(item) {
     document.querySelector('#config_HTML_border').setAttribute('checked',configData.enableBorder);
   } else {
     document.querySelector('#config_HTML_border').removeAttribute('checked');
+  }
+
+  if(configData.enableTabLine) {
+    document.querySelector('#config_HTML_tabline').setAttribute('checked',configData.enableTabLine);
+  } else {
+    document.querySelector('#config_HTML_tabline').removeAttribute('checked');
   }
 
   if(configData.enableGradient) {
@@ -49,11 +56,13 @@ function updateSettings(e) {
 
   let dom_border_state   = document.getElementById('config_HTML_border').checked;
   let dom_gradient_state = document.getElementById('config_HTML_gradient').checked;
+  let dom_tabline_state  = document.getElementById('config_HTML_tabline').checked;
   let dom_accent_state   = document.getElementById('config_HTML_accent').checked;
   let dom_toolbar_override_state  = document.getElementById('config_HTML_toolbar').checked;
 
   configData.enableBorder   = dom_border_state;
   configData.enableGradient = dom_gradient_state;
+  configData.enableTabLine  = dom_tabline_state;
   configData.enableAccent   = dom_accent_state;
   configData.enableToolbarOverride  = dom_toolbar_override_state;
 
@@ -68,6 +77,8 @@ function updateSettings(e) {
 document.addEventListener('DOMContentLoaded',function() {
   document.querySelector('#config_HTML_border').onchange    = updateSettings;
   document.querySelector('#config_HTML_gradient').onchange  = updateSettings;
+  document.querySelector('#config_HTML_tabline').onchange   = updateSettings;
   document.querySelector('#config_HTML_accent').onchange    = updateSettings;
   document.querySelector('#config_HTML_toolbar').onchange   = updateSettings;
+
 },false);
