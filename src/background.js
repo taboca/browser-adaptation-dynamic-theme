@@ -203,15 +203,12 @@ browser.runtime.onMessage.addListener(notify);
 
 function util_custom_update(themeProposal) {
 
-  // If we change the JSON objec it will affect the global reference
-  //let themeProposal2 = Object.assign({}, themeProposal, {})
-  let themeProposal2 = JSON.parse(JSON.stringify(themeProposal));
+  let themeProposal_copy = JSON.parse(JSON.stringify(themeProposal));
 
   if(configData.enableBorder) {
-    themeProposal2.colors['toolbar_bottom_separator'] = null;
-  } else {
+    delete themeProposal_copy.colors.toolbar_bottom_separator;
   }
-  browser.theme.update(themeProposal2);
+  browser.theme.update(themeProposal_copy);
 
 }
 
