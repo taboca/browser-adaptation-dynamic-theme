@@ -5,8 +5,9 @@ let pendingApplyColor = null;
 
 /* Config and storage */
 
-let configData = {
+var configData = {
   enableBorder      : false,
+  enableGradient    : false,
   toolbarHighlight  : false
 }
 
@@ -87,7 +88,6 @@ function updateActiveTab(tabId, changeInfo) {
 
           } else {
             currentActiveTab = tabURLkey;
-            //setTimeout(delayedStore, 2000);
             var capturing = browser.tabs.captureVisibleTab();
             capturing.then(onCaptured, onError);
           }
@@ -96,7 +96,7 @@ function updateActiveTab(tabId, changeInfo) {
 
     var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
     gettingActiveTab.then(updateTab);
-  //getCurrentThemeInfo();
+    // Testing .. getCurrentThemeInfo();
 }
 
 // https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/tabs/captureVisibleTab
@@ -118,8 +118,8 @@ function onCaptured(imageUri) {
 
     let color = {
         r     : canvasData[canvasIndex],
-        g     : canvasData[canvasIndex + 1],
-        b     : canvasData[canvasIndex + 2],
+         g    : canvasData[canvasIndex + 1],
+          b   : canvasData[canvasIndex + 2],
         alpha : canvasData[canvasIndex + 3]
     };
 
