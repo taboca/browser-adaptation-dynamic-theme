@@ -201,15 +201,16 @@ function notify(message) {
 
 browser.runtime.onMessage.addListener(notify);
 
+/*
+   Utils
+*/
+
 function util_custom_update(themeProposal) {
-
   let themeProposal_copy = JSON.parse(JSON.stringify(themeProposal));
-
   if(configData.enableBorder) {
     delete themeProposal_copy.colors.toolbar_bottom_separator;
   }
   browser.theme.update(themeProposal_copy);
-
 }
 
 // https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
