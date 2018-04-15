@@ -2,7 +2,8 @@
 var configData = {
   enableBorder      : false,
   enableGradient    : false,
-  toolbarHighlight  : false
+  enableAccent      : true,
+  enableToolbarOverride : true
 }
 
 function checkStoredSettings(item) {
@@ -23,6 +24,18 @@ function checkStoredSettings(item) {
   } else {
     document.querySelector('#config_HTML_gradient').removeAttribute('checked');
   }
+
+  if(configData.enableAccent) {
+    document.querySelector('#config_HTML_accent').setAttribute('checked',configData.enableAccent);
+  } else {
+    document.querySelector('#config_HTML_accent').removeAttribute('checked');
+  }
+
+  if(configData.enableToolbarOverride) {
+    document.querySelector('#config_HTML_toolbar').setAttribute('checked',configData.enableToolbarOverride);
+  } else {
+    document.querySelector('#config_HTML_toolbar').removeAttribute('checked');
+  }
 }
 
 function onError(error) {
@@ -36,10 +49,13 @@ function updateSettings(e) {
 
   let dom_border_state   = document.getElementById('config_HTML_border').checked;
   let dom_gradient_state = document.getElementById('config_HTML_gradient').checked;
-  //console.log(immersionSetting);
+  let dom_accent_state   = document.getElementById('config_HTML_accent').checked;
+  let dom_toolbar_override_state  = document.getElementById('config_HTML_toolbar').checked;
 
   configData.enableBorder   = dom_border_state;
   configData.enableGradient = dom_gradient_state;
+  configData.enableAccent   = dom_accent_state;
+  configData.enableToolbarOverride  = dom_toolbar_override_state;
 
   browser.storage.local.set({configData});
 
@@ -50,6 +66,8 @@ function updateSettings(e) {
 }
 
 document.addEventListener('DOMContentLoaded',function() {
-  document.querySelector('#config_HTML_border').onchange=updateSettings;
-  document.querySelector('#config_HTML_gradient').onchange=updateSettings;
+  document.querySelector('#config_HTML_border').onchange    = updateSettings;
+  document.querySelector('#config_HTML_gradient').onchange  = updateSettings;
+  document.querySelector('#config_HTML_accent').onchange    = updateSettings;
+  document.querySelector('#config_HTML_toolbar').onchange   = updateSettings;
 },false);

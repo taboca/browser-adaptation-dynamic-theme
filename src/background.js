@@ -4,11 +4,11 @@ let currentActiveTab  = null;
 let pendingApplyColor = null;
 
 /* Config and storage */
-
 var configData = {
   enableBorder      : false,
   enableGradient    : false,
-  toolbarHighlight  : false
+  enableAccent      : true,
+  enableToolbarOverride : true
 }
 
 function checkStoredSettings(item) {
@@ -126,7 +126,7 @@ function onCaptured(imageUri) {
     let themeProposal = util_themePackage(color);
 
     if(currentActiveTab) {
-      console.log('Capturing...')
+      //console.log('Capturing...')
       indexedColorMap[currentActiveTab] = themeProposal.colors;
     }
 
@@ -180,6 +180,13 @@ function util_custom_update(themeProposal) {
     delete themeProposal_copy.images;
     delete themeProposal_copy.properties;
   }
+  if(!configData.enableAccent) {
+    delete themeProposal_copy.colors.accentcolor;
+  }
+  if(!configData.enableToolbarOverride) {
+    delete themeProposal_copy.colors.toolbar;
+  }
+
   browser.theme.update(themeProposal_copy);
 }
 
