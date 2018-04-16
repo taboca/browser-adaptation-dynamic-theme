@@ -55,11 +55,27 @@ Nevertheless, this project is here so we can explore the good opportunities, fir
 
 ## Discussions
 
-* Options - users should be able to customize what data from site is turned into the theme.
+### Calculations
+
+Currently, the calculation for theme color setting is based in page screen capture or alternatively page analysis depending on a user preference (meta theme-color). Some other approaches should be considered in the future:
+
+* Deeper graphics analysis;
+* Text color calculation heuristics;
+* Favicon analysis;
+
+### Proxy or filter for the page
+
+While site data is critical in this project, some initial pref work was done to demonstrate that the user could also define how the orchestration happen. At this stage the user can enable/disable:
+
+* Toolbar bottom border;
+* Toolbar highlight;
+* SVG gradient;
+
+Other possible user-custom features could include:
 
 * Https only - As an example, should only https sites have such color?
 
-* When navbar — If the site has navbar, adapts to navbar and removes the bottom border of the theme;
+* When navbar — If the site has navbar, adapts to navbar and removes the bottom border of the theme.
 
 ### When a theme information is present in an HTML page
 
@@ -68,14 +84,6 @@ There are existing solutions and emerging proposals in place and some degree of 
 ### The theme identity for "chrome" or browser pages
 
 When the user is visiting the browser itself, the same idea would apply and perhaps a step further could be accomplished. At this stage we propose the bottom border of the toolbar to be removed but perhaps a background identify would overflow from the page to the browser bar, like a water mark perhaps proving that both content and the browser bars as the same.
-
-### Calculations
-
-Currently the calculation is based in page screen capture or page analysis depending on a user preference. Some other approaches may occur in the future:
-
-* Graphics analysis looks at a section cut, vertical line, first 10 pixels
-* Text color calculation heuristics
-* Favicon analysis
 
 ### Android Status Bar Color Setting from Apps
 
