@@ -4,7 +4,7 @@
 
 ## Disclaimer about contest participation
 
-* Over Add-ons Mozilla, the project is frozen until Mozilla judges the contest; therefore to honor the partially clear rules from Mozilla, assuming that submission includes Form registration and Add-on data.
+* Why the Add-on release is frozen? Over Add-ons Mozilla, the project is frozen until Mozilla judges the contest; therefore to honor the partially clear rules from Mozilla, assuming that submission includes Form registration and Add-on data.
 
 ## Project introduction
 
