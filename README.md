@@ -2,10 +2,6 @@
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/logo.png)
 
-## Disclaimer about contest participation
-
-* Why the Add-on release is frozen? Over Add-ons Mozilla, the project is frozen until Mozilla judges the contest; therefore to honor the partially clear rules from Mozilla, assuming that submission includes Form registration and Add-on data.
-
 ## Project introduction
 
 This project features a Dynamic Theme for Firefox, launched alongside with the [Extensions Challenge effort](https://extensionschallenge.com) and the Firefox Quantum Edition. In this page, you can access demonstrations, understand the project from a more holistic view, and access the Add-on code.
