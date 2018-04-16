@@ -3,7 +3,9 @@
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/logo.png)
 
 
-## Introduction
+## Project introduction
+
+This project features a Dynamic Theme for Firefox, launched alongside with the [Extensions Challenge effort](https://extensionschallenge.com) and the Firefox Quantum Edition. In this page, you can access demonstrations, understand the project from a more holistic view, and access the Add-on code. 
 
 [See animated GIF demonstration here](http://www.mgalli.com/development/quantum/demo-tabs-theme-dynamic.gif).
 
