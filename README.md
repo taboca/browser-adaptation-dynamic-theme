@@ -69,26 +69,25 @@ There are existing solutions and emerging proposals in place and some degree of 
 
 When the user is visiting the browser itself, the same idea would apply and perhaps a step further could be accomplished. At this stage we propose the bottom border of the toolbar to be removed but perhaps a background identify would overflow from the page to the browser bar, like a water mark perhaps proving that both content and the browser bars as the same.
 
-
 ### Calculations
+
+Currently the calculation is based in page screen capture or page analysis depending on a user preference. Some other approaches may occur in the future:
 
 * Graphics analysis looks at a section cut, vertical line, first 10 pixels
 * Text color calculation heuristics
 * Favicon analysis
 
-# Research
-
-## Android Status Bar Color Setting from Apps
+### Android Status Bar Color Setting from Apps
 
 * Users of Android are used to the experience of the mobile status bar matching certain apps (first became apparent with Google apps) since Lollipop. In the Android framework, the behavior can be accomplished via directly using the [Android View API's setStatusBarColor method](https://developer.android.com/reference/android/view/Window.html#setStatusBarColor(int)). Reflections about color matching, including the means to disambiguate content from colors in the status bar, are also brought in the [Google Material Design — Style Color](https://material.io/guidelines/style/color.html#color-color-system) documentation.
 
-## Inverting Page Contents Inverts Toolbars
+### Inverting Page Contents Inverts Toolbars
 
 * Use Case @ FirefoxInvertColors Project — this project is an extension that promises to invert the colors. This is an interesting case to pay attention and to reason about what would happen when the page change content color. This may also signal some interesting ways to sniff/check current page color values. https://github.com/Max-Github/FireFoxInvertColors.
 
 * In theory, inverting the content should seamlessly work; however we do not trigger a change in the theme just based on any change. Therefore, one consideration here would be to put some theme filters built in the extension, or, alternatively, have a system to recheck page contents. At the earliest version, 1.0, all the times a tab is switched/updated the theme is updated anyway. But with an optimization, such feature would go away since an ideal scenario is to take the content from the cache.
 
-## Adapting the Firefox Theme to the Operating System
+### Adapting the Firefox Theme to the Operating System
 
 * Jacob Birkett, in his project Firefox Native Dark, explores the concept of adaptation however focusing in the exercise of matching against the operating system. https://github.com/spikespaz/firefox-nativedark. Jacob have mentioned that his extension gets the accent color from the Windows 10 operating system, which is defined by the user in the Windows Personalization Settings. He also informed that his extension can't get the data in Linux.
 
@@ -98,7 +97,7 @@ When the user is visiting the browser itself, the same idea would apply and perh
 
 Since this is an experiment, yet functional within the guides of Mozilla Add-ons framework, I had also the chance to reflect about the actual channel of distribution, the Mozilla Add-ons web site.
 
-When working in publishing the Add-on, again, as an experiment, I noticed my mindset: a publisher, or author, aiming to connect with potential early adopters, aiming to connect with developers, aiming to connect with UX experienced professionals; willing to expand the realm of UX discussions around the work. As an example, I have decided to add screenshots as means to discuss specific cases — screenshots of the user visiting the browser internal pages versus screenshots of an user visiting external sites; screenshots of the user visiting a site where the content shows a navbar, and more.
+When working in publishing the Add-on, again, as an experiment; I noticed a mindset: a publisher or author, aiming to connect with potential early adopters, aiming to connect with developers, aiming to connect with UX experienced professionals; willing to expand the realm of UX discussions around a work. As an example, I have decided to add screenshots as means to discuss specific cases — screenshots of the user visiting the browser internal pages versus screenshots of an user visiting external sites; screenshots of the user visiting a site where the content shows a navbar, and more.
 
 When working with a view oriented to the UX discussion, however, I have allowed myself to stumble into the analysis of reviewing, or less naively, reflecting about the role of the Add-ons site itself.
 
