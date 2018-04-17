@@ -12,8 +12,6 @@ This is a prototype for a Firefox theme, however using a UX-oriented mindset; th
 
 The idea is to consider how a browser can/should blend with the actual content that the user is visiting, and to specially consider the dichotomy between external and internal browser pages.
 
-When publishing this work, I have noticed myself using the Mozilla add-on site as a place for UX discussions. For example, I have decided to add screenshots however each screenshot aimed to discuss cases. At the same time noticed how add-ons sites could be improved around these discussions perhaps. If you want to jump to a reflection about the Add-ons site see bellow.
-
 ## Screenshots and use cases
 
 ### Automatically matches with master header
