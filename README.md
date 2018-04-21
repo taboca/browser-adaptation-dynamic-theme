@@ -6,7 +6,7 @@
 
 This project features a Dynamic Theme for Firefox, launched alongside with the [Extensions Challenge effort](https://extensionschallenge.com) and the Firefox Quantum Edition. In this page, you can access demonstrations, understand the project from a more holistic view, and access the Add-on code.
 
-![](http://www.mgalli.com/development/quantum/demo2.gif)
+![](http://www.mgalli.com/development/quantum/demo-chameleon-min.gif)
 
 This is a prototype for a Firefox theme, however using a UX-oriented mindset; this project is aimed as a reflection, therefore it's beyond its initial code. The Add-on experiment is currently available for Firefox Quantum and published at [Chameleon Dynamic Theme Firefox Add-on](https://addons.mozilla.org/pt-BR/firefox/addon/chameleon-dynamic-theme/).
 
