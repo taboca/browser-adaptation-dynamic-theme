@@ -145,7 +145,7 @@ function onError(error) {
   Receiving message from content scripts
 */
 
-function notify(message) {
+function notify(message, sender) {
   if('kind' in message) {
     if(message.kind=='refresh') {
         //console.log('Config:refresh...');
@@ -162,6 +162,7 @@ function notify(message) {
         let themeProposal = util_themePackage(util_hexToRgb(message.value));
         //console.log('Setting index ' + message.value + ' from next page..');
         pendingApplyColor = themeProposal.colors;
+        indexedColorMap[sender.tab.url] = pendingApplyColor;
         util_custom_update(themeProposal);
     }
   }
