@@ -208,13 +208,8 @@ function util_hexToRgb(hex) {
 
 function util_themePackage(color) {
 
-  let textC = parseInt((parseInt(255-color.r) + parseInt(255-color.g) + parseInt(255-color.b))/3);
-
-  if(textC>128) {
-      textC=255
-  } else {
-      textC=0;
-  }
+  // http://stackoverflow.com/a/3943023/112731
+  let textC = (color.r * 0.299 + color.g * 0.587 + color.b * 0.114) > 186 ? 0 : 255;
 
   let colorObject = {
     accentcolor : 'rgb('+color.r+','+color.g+','+color.b+')',
