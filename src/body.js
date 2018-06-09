@@ -19,7 +19,7 @@ console.log('meta:' + document.getElementById('theme-color').getAttribute('conte
 
 var metaData = {
   kind  : 'theme-color',
-  value :  document.getElementById('theme-color').getAttribute('content')
+  value :  document.querySelector('meta[name=theme-color]').getAttribute('content')
 }
 
 browser.runtime.sendMessage(metaData);
