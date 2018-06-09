@@ -163,7 +163,14 @@ function notify(message, sender) {
         //console.log('Setting index ' + message.value + ' from next page..');
         pendingApplyColor = themeProposal.colors;
         indexedColorMap[sender.tab.url] = pendingApplyColor;
-        util_custom_update(themeProposal);
+
+        // update the theme, if the message came from the active tab
+        var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+        gettingActiveTab.then(function(activeTabs) {
+          if (activeTabs[0] === sender) {
+            util_custom_update(themeProposal);
+           }
+        });
     }
   }
 }
