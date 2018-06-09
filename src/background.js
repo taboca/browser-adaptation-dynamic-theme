@@ -167,7 +167,7 @@ function notify(message, sender) {
         // update the theme, if the message came from the active tab
         var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
         gettingActiveTab.then(function(activeTabs) {
-          if (activeTabs[0] === sender) {
+          if (activeTabs[0].id === sender.tab.id) {
             util_custom_update(themeProposal);
            }
         });
