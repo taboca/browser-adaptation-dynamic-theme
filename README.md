@@ -1,4 +1,4 @@
-# Chameleon Dynamic Theme — Adapting the Browser Toolbar to Web Sites & An User Experience Experiment for Firefox
+# Adapting the browser toolbar based on web sites & an user experience experiment for Firefox
 
 ![](https://raw.githubusercontent.com/taboca/themematcher/master/images/logo.png)
 
