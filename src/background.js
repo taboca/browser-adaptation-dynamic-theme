@@ -98,7 +98,6 @@ function updateActiveTab(tabId, changeInfo) {
 
     var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
     gettingActiveTab.then(updateTab);
-    // Testing .. getCurrentThemeInfo();
 }
 
 // https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/tabs/captureVisibleTab
@@ -256,15 +255,8 @@ function getStyle(themeInfo)
   }
 }
 
-async function getCurrentThemeInfo()
-{
-  let themeInfo = await browser.theme.getCurrent();
-  getStyle(themeInfo);
-}
-
 /*
   Main exec functions
-
 */
 
 browser.tabs.onUpdated.addListener(updateActiveTab_pageloaded);
